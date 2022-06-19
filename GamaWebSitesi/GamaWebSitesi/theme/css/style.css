@@ -1,0 +1,47 @@
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+main > .container {
+    padding: 60px 15px 0;
+  }
+
+  #write-review{
+    margin-left: -50px;
+  }
+  #product-price{
+    font-size: 28px;
+    color: red;
+  }
+
+.card-title {
+    font-size: 16px;
+    font-weight: 400;
+    color: #484848;
+    line-height: 1.35em;
+    height: 34px;
+}
+.card-text {
+    font-size: 12px;
+}
+.product-price {
+    color: #414141;
+    font-weight: 700;
+    font-size: 17px;
+
+}
+.description {
+    font-size: 12px;
+    height: 40px;
+}
+
+#product-details h1 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.jumbotron {
+    background-color: #E0E0E0;
+    background-size: cover;
+    height: 100%;
+}

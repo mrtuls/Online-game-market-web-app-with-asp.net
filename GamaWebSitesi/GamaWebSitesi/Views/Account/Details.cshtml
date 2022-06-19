@@ -1,0 +1,88 @@
+﻿@model GamaWebSitesi.Models.OrderDetailsModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container pt-4">
+    <div class="row">
+        <h2>Sipariş Detay Bilgileri</h2>
+        <hr />
+        <div class="col-md-12" >
+            <dl class="row">
+                <dt class="col-sm-3">Sipariş ID</dt>
+                <dd class="col-sm-9">@Model.OrderId</dd>
+
+                <dt class="col-sm-3">Sipariş Numarası </dt>
+                <dd class="col-sm-9">@Model.OrderNumber</dd>
+
+                <dt class="col-sm-3">Total </dt>
+                <dd class="col-sm-9">
+                    @Model.Total
+                    <i class="fa fa-try" aria-hidden="true"></i>
+                </dd>
+
+                <dt class="col-sm-3">Sipariş Tarihi </dt>
+                <dd class="col-sm-9">@Model.OrderDate</dd>
+
+                <dt class="col-sm-3">Sipariş Durumu</dt>
+                <dd class="col-sm-9">
+                                @if (Model.OrderState == GamaWebSitesi.Entity.EnumOrderState.Waiting)
+                                {
+                                    <span class="badge bg-warning">Onay Bekleniniyor</span>
+                                }
+                                else if (Model.OrderState == GamaWebSitesi.Entity.EnumOrderState.Completed)
+                                {
+                                    <span class="badge bg-success">Siparişiniz Onaylandı</span>
+                                }
+                            </dd>
+                <dt class="col-sm-3">Adres</dt>
+                <dd class="col-sm-9">
+                    <dl class="row">
+                        @Model.AdresBasligi
+                        <hr />
+                        @Model.Adres
+                        <br />
+                        @Model.Sehir - @Model.Semt - @Model.Mahalle
+                        <br />
+                        @Model.PostaKodu
+                    </dl>
+                </dd>
+                <dt class="col-sm-3">Ürünler</dt>
+                <dd class="col-sm-9">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Resim</th>
+                                <th>Ürün Adı</th>
+                                <th>Adet</th>
+                                <th>Fİyat</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Orderlines)
+                            {
+                                <tr>
+                                    <td><img src="~/Upload/@item.Image" width="70" /></td>
+                                    <td>@item.ProductName</td>
+                                    <td>@item.Quantity</td>
+                                    <td>
+                                        @item.Price
+                                        <i class="fa fa-try" aria-hidden="true"></i>
+                                    </td>
+                                    <td>
+                                        <a href="/Home/Details/@item.ProductId" class="btn btn-primary btn-sm" target="_blank">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                            Ürün Detay
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+

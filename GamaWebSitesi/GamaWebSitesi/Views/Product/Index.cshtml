@@ -1,0 +1,89 @@
+﻿@using System.Reflection.Emit
+@model IEnumerable<GamaWebSitesi.Entity.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container pb-5 pt-3">
+
+    <h2>Yeni Ürün</h2>
+    <hr />
+
+    <p>
+        @Html.ActionLink("Yeni Ürün", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsHome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsApproved)
+            </th>
+            <th style="width: 140px;"></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="/Upload/@item.Image" width="70" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @if (item.IsHome)
+                    {
+                    <Label class="badge bg-success">
+                        <i class="far fa-eye"></i>
+                        Evet
+                    </Label>
+                    }
+                    else
+                    {
+                    <span class="badge bg-danger">
+                        <i class="far fa-eye-slash"></i>
+                        Hayır
+                    </span>
+                    }
+                </td>
+                <td>
+                    @if (item.IsApproved)
+                    {
+                    <span class="badge bg-success">
+                        <i class="fa-solid fa-check"></i>
+                        Evet
+                    </span>
+                    }
+                    else
+                    {
+                    <span class="badge bg-danger">
+                        <i class="fas fa-times"></i>
+                        Hayır
+                    </span>
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Güncelle", "Edit", new { id = item.Id },new { @class = "btn btn-primary btn-sm" }) 
+                    @Html.ActionLink("Sil", "Delete", new { id = item.Id },new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+

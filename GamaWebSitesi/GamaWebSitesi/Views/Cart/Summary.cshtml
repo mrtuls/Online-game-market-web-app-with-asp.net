@@ -1,0 +1,17 @@
+﻿@model GamaWebSitesi.Models.Cart
+<ul class="navbar-nav my-2 my-lg-0">
+
+    <style>
+        #cart{
+            color:white;
+        }
+    </style>
+
+        <li id="cart" class="nav-item">
+            <a class="nav-link" href="/Cart">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                (@Model.CartLines.Count)
+            </a>
+        </li>
+   
+</ul>

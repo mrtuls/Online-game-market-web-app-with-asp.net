@@ -1,0 +1,25 @@
+﻿@using GamaWebSitesi.Models;
+@model IEnumerable<ProductModel>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="jumbotron">
+        <div class="container">
+        <h1 class="display-3">Merhaba, Oyuncu!</h1>
+        <p class="lead">Senin için özel olarak hazırlanmış bu sitede dilediğin her oyunu bulabilirsin</p>
+        <hr class="my-4">
+        <p>Satın aldıktan sonra keyifle oynayabilirsin</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Daha fazla Oyun</a>
+        </p>
+        </div>
+</div>
+<div class="container pb-5">
+    @Html.Partial("_ProductList",Model)
+</div>
+
+
+
