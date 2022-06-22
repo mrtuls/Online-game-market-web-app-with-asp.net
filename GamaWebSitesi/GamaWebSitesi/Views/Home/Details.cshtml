@@ -17,7 +17,7 @@
             <div class="row mt-1">
                 <div class="col-md-12">
 
-                    @if (Model.IsApproved)
+                    @if (Model.IsApproved && Model.Stock>0)
                     {
                         <span class="badge bg-primary">Stokta</span>
                     }
@@ -26,7 +26,7 @@
                         <span class="badge bg-danger">Stokta Yok</span>
                     }
 
-                    <span class="product-number">#000</span>
+                    <span class="product-number">#@Model.Id</span>
                 </div>
 
                 <div class="row mt-1">
@@ -91,13 +91,144 @@
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade active show" id="pills-description" role="tabpanel" aria-labelledby="pills-description" tabindex="0">
-                        <p>aThis is some placeholder content the <strong>Home tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
+                        <p><h5>Oyun Hakkında Detaylı Bilgi </h5><strong> @Model.Description</strong></p>
                     </div>
                     <div class="tab-pane fade" id="pills-payments" role="tabpanel" aria-labelledby="pills-payments" tabindex="0">
-                        <p>bThis is some placeholder content the <strong>Profile tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
+
+                        <p><div class="container mt-5 px-5">
+
+                             <div class="mb-4">
+
+                            <h2>Ödeme Sayfası</h2>
+                            <span>Lütfen Ödemeyi Tamamlamak için Gerekli Bilgileri Giriniz.</span>
+
+                        </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-8">
+
+
+                                <div class="card p-3">
+
+                                    <h6 class="text-uppercase">Ödeme Deatyları</h6>
+                                    <div class="inputbox mt-3"> <input type="text" name="name" class="form-control" required="required"> <span>Kart Üstündeki Ad Soyad</span> </div>
+
+
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+
+                                            <div class="inputbox mt-3 mr-2">
+                                                <input type="text" name="name" class="form-control" required="required"> <i class="fa fa-credit-card"></i> <span>Kart Numarası</span>
+
+
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="col-md-6">
+
+                                            <div class="d-flex flex-row">
+
+
+                                                <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>SKT</span> </div>
+
+                                                <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>CVV</span> </div>
+
+
+                                            </div>
+
+
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="mt-4 mb-4">
+
+                                        <h6 class="text-uppercase">Billing Address</h6>
+
+
+                                        <div class="row mt-3">
+
+                                            <div class="col-md-6">
+
+                                                <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>Adres Bilgisi</span> </div>
+
+
+                                            </div>
+
+
+                                            <div class="col-md-6">
+
+                                                <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>Şehir</span> </div>
+
+
+                                            </div>
+
+
+
+
+                                        </div>
+
+
+                                        <div class="row mt-2">
+
+                                            <div class="col-md-6">
+
+                                                <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>Semt</span> </div>
+
+
+                                            </div>
+
+
+                                            <div class="col-md-6">
+
+                                                <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>Posta Kodu</span> </div>
+
+
+                                            </div>
+
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="mt-4 mb-4 d-flex justify-content-between">
+
+
+                                    <span>Diğer Adım</span>
+
+
+                                    <button class="btn btn-success px-3">Ödeme Yap</button>
+
+
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                            </div>
+                        </p>
+
                     </div>
+                    
+                    
                     <div class="tab-pane fade" id="pills-comment" role="tabpanel" aria-labelledby="pills-comment" tabindex="0">
-                        <p>cThis is some placeholder content the <strong>Contact tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
+                        <p>Oyun Hakkında Yapılan Yorumlar Eklenecek</p>
                     </div>
                 </div>
             </div>
